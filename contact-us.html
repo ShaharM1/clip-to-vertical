@@ -16,6 +16,15 @@
 main{width:min(760px,calc(100% - 40px));margin:42px auto 40px}.intro{display:flex;align-items:center;gap:18px;margin-bottom:26px}.intro-mark{width:54px;height:54px;border:1px solid #66644b;background:#222428;border-radius:15px;display:grid;place-items:center;color:var(--yellow);flex-shrink:0}.intro-mark svg{width:27px;height:27px}h1{margin:0 0 4px;font-size:clamp(27px,4vw,34px);letter-spacing:-.6px;line-height:1.25}.intro p{margin:0;color:var(--muted);font-size:14px}.panel{padding:30px;background:linear-gradient(155deg,#202226,#17191c 75%);border:1px solid #393c42;border-radius:18px;box-shadow:0 18px 55px #0003}.form-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:24px;padding-bottom:17px;border-bottom:1px solid #34373c}h2{font-size:16px;margin:0;font-weight:700}.required-note{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:21px 20px}.field{min-width:0}.wide{grid-column:1/-1}label{display:block;font-weight:700;font-size:13px;margin-bottom:8px;color:#e6e7e9}input,select,textarea{width:100%;background:#111316;border:1px solid #484c53;border-radius:9px;color:#f4f4f2;padding:12px 13px;transition:border-color .15s;min-height:48px}input:hover,select:hover,textarea:hover{border-color:#777a81}input:focus,select:focus,textarea:focus{border-color:var(--yellow)}input::placeholder,textarea::placeholder{color:#858a94;opacity:1}textarea{display:block;min-height:156px;resize:vertical;line-height:1.7}select{cursor:pointer}input[aria-invalid="true"],textarea[aria-invalid="true"],select[aria-invalid="true"]{border-color:#f09b9b}.error{color:#ffb6b6;font-size:12px;margin:6px 0 0}.field-meta{display:flex;justify-content:space-between;gap:16px;margin-top:7px;color:#aaadb4;font-size:11px}.field-meta span:first-child{flex:1}.count{direction:ltr;font-variant-numeric:tabular-nums;white-space:nowrap}.security{display:flex;align-items:flex-start;gap:11px;margin:24px 0 20px;padding:15px 16px;background:#202327;border:1px solid #3b4146;border-radius:10px}.security svg{width:20px;height:20px;flex-shrink:0;color:#d3d69e;margin-top:1px}.security strong{display:block;font-size:13px;font-weight:700}.security p{font-size:12px;color:var(--muted);margin:2px 0 0;line-height:1.6}.actions{display:flex;justify-content:space-between;align-items:center;gap:24px}.submit{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex-shrink:0;background:var(--yellow);border:1px solid #d4cb00;border-radius:10px;color:#111214;min-height:46px;padding:10px 23px;font-size:14px;font-weight:800;box-shadow:0 3px 12px #0004}.submit:hover{background:#fff847}.submit:disabled{opacity:.65;cursor:wait}.submit svg{width:18px;height:18px}.privacy-note{font-size:11px;color:#a5a9b2;line-height:1.7;margin:0;max-width:410px}.privacy-note a{color:#c9ccd2;text-underline-offset:3px}.notice{padding:12px 15px;border:1px solid #6e6340;background:#29261e;color:#e6dfc9;border-radius:10px;font-size:13px;margin:0 0 20px}.status{margin:16px 0 0;color:#ffb6b6;font-size:13px}footer{margin-top:27px;padding-top:19px;border-top:1px solid #303238;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#93979f;font-size:12px}.footer-brand{direction:ltr;letter-spacing:.6px;font-size:11px;font-weight:700}footer span:last-child{text-align:end}.trap{display:none!important}
 @media(max-width:600px){.topbar-content{width:calc(100% - 32px);gap:16px;flex-wrap:wrap;justify-content:center}.brand strong{font-size:17px}.brand-logo{width:39px;height:39px}.brand{gap:10px}.language button{padding:6px 8px}main{margin-top:28px;width:calc(100% - 28px)}.intro{gap:13px;margin-bottom:22px}.intro-mark{width:46px;height:46px;border-radius:12px}.intro p{font-size:13px}.panel{padding:21px 18px}.grid{grid-template-columns:1fr;gap:18px}.form-heading{margin-bottom:20px}.actions{flex-direction:column-reverse;align-items:stretch;gap:14px}.submit{width:100%}.privacy-note{max-width:none}.security{padding:13px}.required-note{font-size:11px}footer{font-size:11px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+html[dir="rtl"] .field input,html[dir="rtl"] .field textarea,html[dir="rtl"] .field select{text-align:right}
+html[dir="ltr"] .field input,html[dir="ltr"] .field textarea,html[dir="ltr"] .field select{text-align:left}
+html[dir="rtl"] .field input::placeholder,html[dir="rtl"] .field textarea::placeholder{direction:rtl;text-align:right}
+html[dir="ltr"] .field input::placeholder,html[dir="ltr"] .field textarea::placeholder{direction:ltr;text-align:left}
+.success-notice{display:flex;align-items:flex-start;gap:13px;margin:0 0 24px;padding:19px 20px;border:1px solid #666443;border-radius:13px;background:#202320;box-shadow:0 6px 20px #0002}
+.success-icon{display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;background:#fff40012;border:1px solid #fff40050;border-radius:50%;color:var(--yellow)}
+.success-icon svg{width:19px;height:19px}.success-copy{flex:1;min-width:0}.success-copy strong{display:block;font-size:16px;color:#f4f4f2}.success-copy p{margin:3px 0 0;font-size:13px;color:#b7bcb6}
+.success-close{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:0;border-radius:6px;color:#b2b5b3;background:transparent;font-size:23px;line-height:1}.success-close:hover{background:#343835;color:white}
 </style>
 </head>
 <body>
@@ -25,33 +34,30 @@ main{width:min(760px,calc(100% - 40px));margin:42px auto 40px}.intro{display:fle
 </div></header>
 <main>
 <div class="intro"><div class="intro-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div><div><h1 data-i18n="title">יצירת קשר</h1><p data-i18n="intro">שאלה, תקלה או רעיון לשיפור? נשמח לשמוע.</p></div></div>
+<div class="success-notice" id="successNotice" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden>
+<span class="success-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>
+<div class="success-copy"><strong data-i18n="successTitle">הפנייה נשלחה בהצלחה</strong><p data-i18n="successText">תודה שיצרתם קשר.</p></div>
+<button type="button" class="success-close" id="closeSuccess" aria-label="סגירת הודעת ההצלחה"><span aria-hidden="true">×</span></button>
+</div>
 <p class="notice" id="localNotice" hidden data-i18n="localNotice">זו תצוגה מקומית של הדף. שליחת הודעות זמינה לאחר העלאת הקובץ לאתר.</p>
 <noscript><p class="notice">יש להפעיל JavaScript כדי להשתמש בטופס. / Please enable JavaScript to use this form.</p></noscript>
 <section class="panel" aria-labelledby="formTitle">
 <div class="form-heading"><h2 id="formTitle" data-i18n="formTitle">שליחת פנייה</h2><span class="required-note" data-i18n="requiredNote">כל השדות חובה</span></div>
-<!-- OWNER SETUP: Host this single file on an HTTPS website (e.g. GitHub Pages).
-     Submit once from the published URL, then activate FormSubmit using the email
-     sent to the destination mailbox. After activation, submit a new test to verify delivery.
-     FormSubmit handles reCAPTCHA on its own page before delivery. Keep native POST;
-     do not replace it with AJAX or disable CAPTCHA. No autoresponse or CC is configured.
-     Optionally replace the email in action with the private endpoint token provided
-     by FormSubmit after activation, to keep the destination address out of the source.
-     Only language preference is stored locally, never message contents. -->
 <form id="contactForm" action="https://formsubmit.co/dc09864df7a37a078f4a30ebe89bb5a1" method="POST" accept-charset="UTF-8">
-<input type="hidden" name="_next" value="https://shaharm1.github.io/clip-to-vertical-privacy/contact-us">
+<input type="hidden" name="_next" id="returnUrl" value="https://shaharm1.github.io/clip-to-vertical-privacy/contact-us?sent=1&amp;lang=he">
 <input type="hidden" name="_subject" id="mailSubject" value="Clip To Vertical: כללי">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="true">
 <input class="trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 <fieldset id="fields" disabled style="border:0;margin:0;padding:0;min-width:0">
 <div class="grid">
-<div class="field"><label for="fullName" data-i18n="fullName">שם מלא</label><input id="fullName" name="name" autocomplete="name" dir="auto" required maxlength="100" data-placeholder="namePlaceholder" placeholder="השם המלא שלכם" aria-describedby="nameError"><p class="error" id="nameError" hidden></p></div>
-<div class="field"><label for="email" data-i18n="email">דוא״ל</label><input id="email" type="email" name="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" dir="ltr" required maxlength="254" placeholder="you@example.com" aria-describedby="emailError"><p class="error" id="emailError" hidden></p></div>
+<div class="field"><label for="fullName" data-i18n="fullName">שם מלא</label><input id="fullName" name="name" autocomplete="name" dir="rtl" required maxlength="100" data-placeholder="namePlaceholder" placeholder="השם המלא שלכם" aria-describedby="nameError"><p class="error" id="nameError" hidden></p></div>
+<div class="field"><label for="email" data-i18n="email">דוא״ל</label><input id="email" type="email" name="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" dir="ltr" required maxlength="254" data-placeholder="emailPlaceholder" placeholder="כתובת הדוא״ל שלכם" aria-describedby="emailError"><p class="error" id="emailError" hidden></p></div>
 <div class="field wide"><label for="topic" data-i18n="topic">נושא הפנייה</label><select id="topic" name="topic" required aria-describedby="topicError"><option value="" disabled selected data-i18n="chooseTopic">בחרו נושא</option><option value="general" data-i18n="general">כללי</option><option value="bugs" data-i18n="bugs">דיווח על באגים</option><option value="suggestions" data-i18n="suggestions">הצעות לשיפור/הוספה</option></select><p class="error" id="topicError" hidden></p></div>
-<div class="field wide"><label for="message" data-i18n="message">תוכן הפנייה</label><textarea id="message" name="message" dir="auto" required maxlength="5000" data-placeholder="messagePlaceholder" placeholder="כתבו כאן את הפנייה שלכם…" aria-describedby="messageHint messageError"></textarea><div class="field-meta"><span id="messageHint" data-i18n="messageHint">מדווחים על תקלה? כתבו מה קרה ובאיזה שלב.</span><span class="count" id="count">0 / 5,000</span></div><p class="error" id="messageError" hidden></p></div>
+<div class="field wide"><label for="message" data-i18n="message">תוכן הפנייה</label><textarea id="message" name="message" dir="rtl" required maxlength="5000" data-placeholder="messagePlaceholder" placeholder="כתבו כאן את הפנייה שלכם…" aria-describedby="messageHint messageError"></textarea><div class="field-meta"><span id="messageHint" data-i18n="messageHint">מדווחים על תקלה? כתבו מה קרה ובאיזה שלב.</span><span class="count" id="count">0 / 5,000</span></div><p class="error" id="messageError" hidden></p></div>
 </div>
 <div class="security"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg><div><strong data-i18n="securityTitle">אימות אבטחה</strong><p data-i18n="securityText">לאחר הלחיצה תעברו לאימות reCAPTCHA. השלימו אותו כדי לשלוח את הפנייה.</p></div></div>
-<div class="actions"><p class="privacy-note"><span data-i18n="privacy">פרטי הפנייה יועברו ל־FormSubmit לצורך שליחתם אלינו. לא נשלח אליכם מייל אישור אוטומטי.</span> <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer" data-i18n="privacyLink">פרטיות השירות</a></p><button class="submit" id="send" type="submit"><span id="sendText" data-i18n="send">שליחת פנייה</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></svg></button></div>
+<div class="actions"><p class="privacy-note"><span data-i18n="privacy">פרטי הפנייה יועברו ל־FormSubmit לצורך שליחתם אלינו.</span> <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer" data-i18n="privacyLink">פרטיות השירות</a></p><button class="submit" id="send" type="submit"><span id="sendText" data-i18n="send">שליחת פנייה</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></svg></button></div>
 </fieldset>
 <p class="status" role="alert" id="status" hidden></p>
 </form>
@@ -62,13 +68,19 @@ main{width:min(760px,calc(100% - 40px));margin:42px auto 40px}.intro{display:fle
 'use strict';
 (()=>{
 const copy={
-he:{brandSubtitle:'עריכה מדויקת לווידאו אנכי',title:'יצירת קשר',intro:'שאלה, תקלה או רעיון לשיפור? נשמח לשמוע.',formTitle:'שליחת פנייה',requiredNote:'כל השדות חובה',fullName:'שם מלא',email:'דוא״ל',topic:'נושא הפנייה',chooseTopic:'בחרו נושא',general:'כללי',bugs:'דיווח על באגים',suggestions:'הצעות לשיפור/הוספה',message:'תוכן הפנייה',namePlaceholder:'השם המלא שלכם',messagePlaceholder:'כתבו כאן את הפנייה שלכם…',messageHint:'מדווחים על תקלה? כתבו מה קרה ובאיזה שלב.',securityTitle:'אימות אבטחה',securityText:'לאחר הלחיצה תעברו לאימות reCAPTCHA. השלימו אותו כדי לשלוח את הפנייה.',privacy:'פרטי הפנייה יועברו ל־FormSubmit לצורך שליחתם אלינו. לא נשלח אליכם מייל אישור אוטומטי.',privacyLink:'פרטיות השירות',send:'שליחת פנייה',sending:'מעבר לאימות…',footer:'עריכה מדויקת לווידאו אנכי',localNotice:'זו תצוגה מקומית של הדף. שליחת הודעות זמינה לאחר העלאת הקובץ לאתר.',nameError:'יש להזין שם מלא.',emailError:'יש להזין כתובת דוא״ל תקינה.',topicError:'יש לבחור נושא לפנייה.',messageError:'יש לכתוב את תוכן הפנייה (עד 5,000 תווים).',offline:'אין חיבור לאינטרנט. התחברו ונסו שוב.'},
-en:{brandSubtitle:'Precision editing for vertical video',title:'Contact us',intro:'Have a question, found a bug, or have an idea? Let us know.',formTitle:'Send a message',requiredNote:'All fields are required',fullName:'Full name',email:'Email address',topic:'Topic',chooseTopic:'Select a topic',general:'General',bugs:'Bug report',suggestions:'Improvements / feature requests',message:'Message',namePlaceholder:'Your full name',messagePlaceholder:'Tell us how we can help…',messageHint:'Reporting a bug? Tell us what happened and when.',securityTitle:'Security verification',securityText:'You’ll be taken to reCAPTCHA after clicking below. Complete the verification to send your message.',privacy:'Your contact details and message will be processed by FormSubmit for delivery to us. We won’t send you an automatic confirmation email.',privacyLink:'Service privacy policy',send:'Send message',sending:'Opening verification…',footer:'Precision editing for vertical video',localNotice:'This is a local preview. Messages can be sent once this file is published on a website.',nameError:'Please enter your full name.',emailError:'Please enter a valid email address.',topicError:'Please select a topic.',messageError:'Please enter your message (up to 5,000 characters).',offline:'You’re offline. Connect to the internet and try again.'}
+he:{brandSubtitle:'עריכה מדויקת לווידאו אנכי',title:'יצירת קשר',intro:'שאלה, תקלה או רעיון לשיפור? נשמח לשמוע.',formTitle:'שליחת פנייה',requiredNote:'כל השדות חובה',fullName:'שם מלא',email:'דוא״ל',topic:'נושא הפנייה',chooseTopic:'בחרו נושא',general:'כללי',bugs:'דיווח על באגים',suggestions:'הצעות לשיפור/הוספה',message:'תוכן הפנייה',namePlaceholder:'השם המלא שלכם',emailPlaceholder:'כתובת הדוא״ל שלכם',successTitle:'הפנייה נשלחה בהצלחה',successText:'תודה שיצרתם קשר.',closeSuccess:'סגירת הודעת ההצלחה',messagePlaceholder:'כתבו כאן את הפנייה שלכם…',messageHint:'מדווחים על תקלה? כתבו מה קרה ובאיזה שלב.',securityTitle:'אימות אבטחה',securityText:'לאחר הלחיצה תעברו לאימות reCAPTCHA. השלימו אותו כדי לשלוח את הפנייה.',privacy:'פרטי הפנייה יועברו ל־FormSubmit לצורך שליחתם אלינו.',privacyLink:'פרטיות השירות',send:'שליחת פנייה',sending:'מעבר לאימות…',footer:'עריכה מדויקת לווידאו אנכי',localNotice:'זו תצוגה מקומית של הדף. שליחת הודעות זמינה לאחר העלאת הקובץ לאתר.',nameError:'יש להזין שם מלא.',emailError:'יש להזין כתובת דוא״ל תקינה.',topicError:'יש לבחור נושא לפנייה.',messageError:'יש לכתוב את תוכן הפנייה (עד 5,000 תווים).',offline:'אין חיבור לאינטרנט. התחברו ונסו שוב.'},
+en:{brandSubtitle:'Precision editing for vertical video',title:'Contact us',intro:'Have a question, found a bug, or have an idea? Let us know.',formTitle:'Send a message',requiredNote:'All fields are required',fullName:'Full name',email:'Email address',topic:'Topic',chooseTopic:'Select a topic',general:'General',bugs:'Bug report',suggestions:'Improvements / feature requests',message:'Message',namePlaceholder:'Your full name',emailPlaceholder:'you@example.com',successTitle:'Message sent successfully',successText:'Thanks for getting in touch.',closeSuccess:'Dismiss confirmation',messagePlaceholder:'Tell us how we can help…',messageHint:'Reporting a bug? Tell us what happened and when.',securityTitle:'Security verification',securityText:'You’ll be taken to reCAPTCHA after clicking below. Complete the verification to send your message.',privacy:'Your contact details and message will be processed by FormSubmit for delivery to us.',privacyLink:'Service privacy policy',send:'Send message',sending:'Opening verification…',footer:'Precision editing for vertical video',localNotice:'This is a local preview. Messages can be sent once this file is published on a website.',nameError:'Please enter your full name.',emailError:'Please enter a valid email address.',topicError:'Please select a topic.',messageError:'Please enter your message (up to 5,000 characters).',offline:'You’re offline. Connect to the internet and try again.'}
 };
 const form=document.getElementById('contactForm'), topic=document.getElementById('topic'), message=document.getElementById('message'), send=document.getElementById('send'), status=document.getElementById('status');
 const fields=[['fullName','nameError'],['email','emailError'],['topic','topicError'],['message','messageError']];
 let lang='he',busy=false,statusKey='',retryTimer;
 const local=!/^https?:$/.test(location.protocol);
+const successNotice=document.getElementById('successNotice');
+function syncReturnUrl(){
+const next=new URL('https://shaharm1.github.io/clip-to-vertical-privacy/contact-us');
+next.searchParams.set('sent','1');next.searchParams.set('lang',lang);
+document.getElementById('returnUrl').value=next.href;
+}
 function syncSubject(){document.getElementById('mailSubject').value='Clip To Vertical: '+copy[lang][topic.value||'general'];}
 function validField(id){const e=document.getElementById(id);return e.value.trim().length>0&&e.validity.valid;}
 function validate(id,errorId){const field=document.getElementById(id),error=document.getElementById(errorId),ok=validField(id);field.setAttribute('aria-invalid',String(!ok));error.hidden=ok;error.textContent=ok?'':copy[lang][errorId];return ok;}
@@ -79,13 +91,20 @@ document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=copy[lang][e.d
 document.querySelectorAll('[data-placeholder]').forEach(e=>e.placeholder=copy[lang][e.dataset.placeholder]);
 document.querySelectorAll('[data-lang]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.lang===lang)));
 fields.forEach(([id,err])=>{if(document.getElementById(id).getAttribute('aria-invalid')==='true')validate(id,err);});
-syncSubject();setStatus(statusKey);if(busy)document.getElementById('sendText').textContent=copy[lang].sending;
+['fullName','message','topic'].forEach(id=>document.getElementById(id).setAttribute('dir',lang==='he'?'rtl':'ltr'));
+document.getElementById('closeSuccess').setAttribute('aria-label',copy[lang].closeSuccess);
+syncReturnUrl();syncSubject();setStatus(statusKey);if(busy)document.getElementById('sendText').textContent=copy[lang].sending;
 if(persist){try{localStorage.setItem('blaz-language',lang);}catch(_){} }
 }
 let initial=new URLSearchParams(location.search).get('lang');
 if(!['he','en'].includes(initial)){try{initial=localStorage.getItem('blaz-language');}catch(_){} }
 if(!['he','en'].includes(initial))initial=/^he(?:[-_]|$)/i.test(navigator.language||'')?'he':'en';
 setLanguage(initial);
+if(!local&&new URLSearchParams(location.search).get('sent')==='1'){
+successNotice.hidden=false;successNotice.focus();
+try{const clean=new URL(location.href);clean.searchParams.delete('sent');history.replaceState(history.state,'',clean.href);}catch(_){}
+}
+document.getElementById('closeSuccess').addEventListener('click',()=>{successNotice.hidden=true;document.getElementById('fullName').focus();});
 document.querySelectorAll('[data-lang]').forEach(e=>e.addEventListener('click',()=>setLanguage(e.dataset.lang,true)));
 fields.forEach(([id,err])=>document.getElementById(id).addEventListener('input',()=>{if(document.getElementById(id).hasAttribute('aria-invalid'))validate(id,err);setStatus('');}));
 topic.addEventListener('change',syncSubject);
@@ -99,9 +118,7 @@ fields.forEach(([id,err])=>{if(!validate(id,err)&&!firstInvalid)firstInvalid=doc
 if(firstInvalid){e.preventDefault();firstInvalid.focus();return;}
 if(local){e.preventDefault();setStatus('localNotice');return;}
 if(!navigator.onLine){e.preventDefault();setStatus('offline');return;}
-syncSubject();busy=true;send.disabled=true;form.setAttribute('aria-busy','true');document.getElementById('sendText').textContent=copy[lang].sending;
-// Native POST is required for the provider's server-verified CAPTCHA.
-// Re-enable if navigation is blocked. Never claim delivery from client-side state.
+successNotice.hidden=true;syncReturnUrl();syncSubject();busy=true;send.disabled=true;form.setAttribute('aria-busy','true');document.getElementById('sendText').textContent=copy[lang].sending;
 retryTimer=setTimeout(resetBusy,15000);
 });
 window.addEventListener('pageshow',resetBusy);
