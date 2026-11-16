@@ -43,8 +43,10 @@ html[dir="ltr"] .field input::placeholder,html[dir="ltr"] .field textarea::place
 <noscript><p class="notice">יש להפעיל JavaScript כדי להשתמש בטופס. / Please enable JavaScript to use this form.</p></noscript>
 <section class="panel" aria-labelledby="formTitle">
 <div class="form-heading"><h2 id="formTitle" data-i18n="formTitle">שליחת פנייה</h2><span class="required-note" data-i18n="requiredNote">כל השדות חובה</span></div>
-<form id="contactForm" action="https://formsubmit.co/dc09864df7a37a078f4a30ebe89bb5a1" method="POST" accept-charset="UTF-8">
+<form id="contactForm" action="https://formsubmit.co/dc09864df7a37a078f4a30ebe89bb5a1" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
 <input type="hidden" name="_next" id="returnUrl" value="https://shaharm1.github.io/clip-to-vertical-privacy/contact-us?sent=1&amp;lang=he">
+<input type="hidden" name="_url" value="https://shaharm1.github.io/clip-to-vertical-privacy/contact-us">
+<input type="hidden" name="topic" id="mailTopic" value="כללי">
 <input type="hidden" name="_subject" id="mailSubject" value="Clip To Vertical: כללי">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="true">
@@ -53,7 +55,7 @@ html[dir="ltr"] .field input::placeholder,html[dir="ltr"] .field textarea::place
 <div class="grid">
 <div class="field"><label for="fullName" data-i18n="fullName">שם מלא</label><input id="fullName" name="name" autocomplete="name" dir="rtl" required maxlength="100" data-placeholder="namePlaceholder" placeholder="השם המלא שלכם" aria-describedby="nameError"><p class="error" id="nameError" hidden></p></div>
 <div class="field"><label for="email" data-i18n="email">דוא״ל</label><input id="email" type="email" name="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" dir="ltr" required maxlength="254" data-placeholder="emailPlaceholder" placeholder="כתובת הדוא״ל שלכם" aria-describedby="emailError"><p class="error" id="emailError" hidden></p></div>
-<div class="field wide"><label for="topic" data-i18n="topic">נושא הפנייה</label><select id="topic" name="topic" required aria-describedby="topicError"><option value="" disabled selected data-i18n="chooseTopic">בחרו נושא</option><option value="general" data-i18n="general">כללי</option><option value="bugs" data-i18n="bugs">דיווח על באגים</option><option value="suggestions" data-i18n="suggestions">הצעות לשיפור/הוספה</option></select><p class="error" id="topicError" hidden></p></div>
+<div class="field wide"><label for="topic" data-i18n="topic">נושא הפנייה</label><select id="topic" required aria-describedby="topicError"><option value="" disabled selected data-i18n="chooseTopic">בחרו נושא</option><option value="general" data-i18n="general">כללי</option><option value="bugs" data-i18n="bugs">דיווח על באגים</option><option value="suggestions" data-i18n="suggestions">הצעות לשיפור/הוספה</option></select><p class="error" id="topicError" hidden></p></div>
 <div class="field wide"><label for="message" data-i18n="message">תוכן הפנייה</label><textarea id="message" name="message" dir="rtl" required maxlength="5000" data-placeholder="messagePlaceholder" placeholder="כתבו כאן את הפנייה שלכם…" aria-describedby="messageHint messageError"></textarea><div class="field-meta"><span id="messageHint" data-i18n="messageHint">מדווחים על תקלה? כתבו מה קרה ובאיזה שלב.</span><span class="count" id="count">0 / 5,000</span></div><p class="error" id="messageError" hidden></p></div>
 </div>
 <div class="security"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg><div><strong data-i18n="securityTitle">אימות אבטחה</strong><p data-i18n="securityText">לאחר הלחיצה תעברו לאימות reCAPTCHA. השלימו אותו כדי לשלוח את הפנייה.</p></div></div>
@@ -81,7 +83,7 @@ const next=new URL('https://shaharm1.github.io/clip-to-vertical-privacy/contact-
 next.searchParams.set('sent','1');next.searchParams.set('lang',lang);
 document.getElementById('returnUrl').value=next.href;
 }
-function syncSubject(){document.getElementById('mailSubject').value='Clip To Vertical: '+copy[lang][topic.value||'general'];}
+function syncSubject(){const label=copy[lang][topic.value||'general'];document.getElementById('mailSubject').value='Clip To Vertical: '+label;document.getElementById('mailTopic').value=label;}
 function validField(id){const e=document.getElementById(id);return e.value.trim().length>0&&e.validity.valid;}
 function validate(id,errorId){const field=document.getElementById(id),error=document.getElementById(errorId),ok=validField(id);field.setAttribute('aria-invalid',String(!ok));error.hidden=ok;error.textContent=ok?'':copy[lang][errorId];return ok;}
 function setStatus(key){statusKey=key;status.hidden=!key;status.textContent=key?copy[lang][key]:'';}
@@ -109,7 +111,7 @@ document.querySelectorAll('[data-lang]').forEach(e=>e.addEventListener('click',(
 fields.forEach(([id,err])=>document.getElementById(id).addEventListener('input',()=>{if(document.getElementById(id).hasAttribute('aria-invalid'))validate(id,err);setStatus('');}));
 topic.addEventListener('change',syncSubject);
 message.addEventListener('input',()=>document.getElementById('count').textContent=message.value.length.toLocaleString('en-US')+' / 5,000');
-form.addEventListener('formdata',e=>{e.formData.set('topic',copy[lang][topic.value||'general']);e.formData.set('_subject','Clip To Vertical: '+copy[lang][topic.value||'general']);});
+
 function resetBusy(){clearTimeout(retryTimer);busy=false;send.disabled=false;form.removeAttribute('aria-busy');document.getElementById('sendText').textContent=copy[lang].send;}
 form.addEventListener('submit',e=>{
 if(busy){e.preventDefault();return;}
