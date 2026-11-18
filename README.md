@@ -1,1 +1,1 @@
-# clip-to-vertical-privacy
+# clip-to-vertical
