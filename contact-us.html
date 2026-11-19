@@ -26,6 +26,29 @@ html[dir="ltr"] .field input::placeholder,html[dir="ltr"] .field textarea::place
 .success-icon svg{width:19px;height:19px}.success-copy{flex:1;min-width:0}.success-copy strong{display:block;font-size:16px;color:#f4f4f2}.success-copy p{margin:3px 0 0;font-size:13px;color:#b7bcb6}
 .success-close{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:0;border-radius:6px;color:#b2b5b3;background:transparent;font-size:23px;line-height:1}.success-close:hover{background:#343835;color:white}
 </style>
+<style>html[data-language-pending] body{visibility:hidden}</style>
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  let locale = '';
+  if (location.protocol === 'chrome-extension:') {
+    try { locale = globalThis.chrome?.i18n?.getUILanguage?.() || ''; } catch (_) {}
+  }
+  locale = locale || navigator.language || navigator.languages?.[0] || 'en';
+  let lang = /^(he|iw)([-_]|$)/i.test(locale) ? 'he' : 'en';
+
+  // A successful contact-form submission returns in the language used to submit it.
+  const params = new URLSearchParams(location.search);
+  if (/^https?:$/.test(location.protocol) && params.get('sent') === '1' && ['he', 'en'].includes(params.get('lang'))) {
+    lang = params.get('lang');
+  }
+  root.setAttribute('data-language-pending', '');
+  root.lang = lang;
+  root.dir = lang === 'he' ? 'rtl' : 'ltr';
+  document.addEventListener('DOMContentLoaded', () => root.removeAttribute('data-language-pending'), {once:true});
+})();
+</script>
 </head>
 <body>
 <header class="topbar"><div class="topbar-content">
@@ -87,8 +110,9 @@ function syncSubject(){const label=copy[lang][topic.value||'general'];document.g
 function validField(id){const e=document.getElementById(id);return e.value.trim().length>0&&e.validity.valid;}
 function validate(id,errorId){const field=document.getElementById(id),error=document.getElementById(errorId),ok=validField(id);field.setAttribute('aria-invalid',String(!ok));error.hidden=ok;error.textContent=ok?'':copy[lang][errorId];return ok;}
 function setStatus(key){statusKey=key;status.hidden=!key;status.textContent=key?copy[lang][key]:'';}
-function setLanguage(next,persist=false){
-lang=next==='he'?'he':'en';document.documentElement.lang=lang==='en'?'en-US':'he';document.documentElement.dir=lang==='he'?'rtl':'ltr';document.title='Clip to Vertical — Contact Us';
+function setLanguage(next){
+lang=next==='he'?'he':'en';document.documentElement.lang=lang==='en'?'en-US':'he';document.documentElement.dir=lang==='he'?'rtl':'ltr';document.title=lang==='he'?'Clip to Vertical — יצירת קשר':'Clip to Vertical — Contact Us';
+document.querySelector('meta[name="description"]').content=lang==='he'?'יצירת קשר עם Clip to Vertical. שלחו שאלה, דווחו על תקלה או הציעו שיפור.':'Contact Clip to Vertical. Send a question, report a bug, or suggest a feature.';
 document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=copy[lang][e.dataset.i18n]);
 document.querySelectorAll('[data-placeholder]').forEach(e=>e.placeholder=copy[lang][e.dataset.placeholder]);
 document.querySelectorAll('[data-lang]').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.lang===lang)));
@@ -96,18 +120,14 @@ fields.forEach(([id,err])=>{if(document.getElementById(id).getAttribute('aria-in
 ['fullName','message','topic'].forEach(id=>document.getElementById(id).setAttribute('dir',lang==='he'?'rtl':'ltr'));
 document.getElementById('closeSuccess').setAttribute('aria-label',copy[lang].closeSuccess);
 syncReturnUrl();syncSubject();setStatus(statusKey);if(busy)document.getElementById('sendText').textContent=copy[lang].sending;
-if(persist){try{localStorage.setItem('blaz-language',lang);}catch(_){} }
 }
-let initial=new URLSearchParams(location.search).get('lang');
-if(!['he','en'].includes(initial)){try{initial=localStorage.getItem('blaz-language');}catch(_){} }
-if(!['he','en'].includes(initial))initial=/^he(?:[-_]|$)/i.test(navigator.language||'')?'he':'en';
-setLanguage(initial);
+setLanguage(document.documentElement.lang);
 if(!local&&new URLSearchParams(location.search).get('sent')==='1'){
 successNotice.hidden=false;successNotice.focus();
 try{const clean=new URL(location.href);clean.searchParams.delete('sent');history.replaceState(history.state,'',clean.href);}catch(_){}
 }
 document.getElementById('closeSuccess').addEventListener('click',()=>{successNotice.hidden=true;document.getElementById('fullName').focus();});
-document.querySelectorAll('[data-lang]').forEach(e=>e.addEventListener('click',()=>setLanguage(e.dataset.lang,true)));
+document.querySelectorAll('[data-lang]').forEach(e=>e.addEventListener('click',()=>setLanguage(e.dataset.lang)));
 fields.forEach(([id,err])=>document.getElementById(id).addEventListener('input',()=>{if(document.getElementById(id).hasAttribute('aria-invalid'))validate(id,err);setStatus('');}));
 topic.addEventListener('change',syncSubject);
 message.addEventListener('input',()=>document.getElementById('count').textContent=message.value.length.toLocaleString('en-US')+' / 5,000');
