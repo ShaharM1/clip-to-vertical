@@ -67,8 +67,8 @@ html[dir="ltr"] .field input::placeholder,html[dir="ltr"] .field textarea::place
 <section class="panel" aria-labelledby="formTitle">
 <div class="form-heading"><h2 id="formTitle" data-i18n="formTitle">שליחת פנייה</h2><span class="required-note" data-i18n="requiredNote">כל השדות חובה</span></div>
 <form id="contactForm" action="https://formsubmit.co/dc09864df7a37a078f4a30ebe89bb5a1" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
-<input type="hidden" name="_next" id="returnUrl" value="https://shaharm1.github.io/clip-to-vertical-privacy/contact-us?sent=1&amp;lang=he">
-<input type="hidden" name="_url" value="https://shaharm1.github.io/clip-to-vertical-privacy/contact-us">
+<input type="hidden" name="_next" id="returnUrl" value="https://shaharm1.github.io/clip-to-vertical/contact-us.html?sent=1&amp;lang=he">
+<input type="hidden" name="_url" value="https://shaharm1.github.io/clip-to-vertical/contact-us.html">
 <input type="hidden" name="topic" id="mailTopic" value="כללי">
 <input type="hidden" name="_subject" id="mailSubject" value="Clip To Vertical: כללי">
 <input type="hidden" name="_template" value="table">
@@ -82,7 +82,7 @@ html[dir="ltr"] .field input::placeholder,html[dir="ltr"] .field textarea::place
 <div class="field wide"><label for="message" data-i18n="message">תוכן הפנייה</label><textarea id="message" name="message" dir="rtl" required maxlength="5000" data-placeholder="messagePlaceholder" placeholder="כתבו כאן את הפנייה שלכם…" aria-describedby="messageHint messageError"></textarea><div class="field-meta"><span id="messageHint" data-i18n="messageHint">מדווחים על תקלה? כתבו מה קרה ובאיזה שלב.</span><span class="count" id="count">0 / 5,000</span></div><p class="error" id="messageError" hidden></p></div>
 </div>
 <div class="security"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg><div><strong data-i18n="securityTitle">אימות אבטחה</strong><p data-i18n="securityText">לאחר הלחיצה תעברו לאימות reCAPTCHA. השלימו אותו כדי לשלוח את הפנייה.</p></div></div>
-<div class="actions"><p class="privacy-note"><span data-i18n="privacy">הפנייה תועבר באמצעות FormSubmit לתיבת הדוא״ל שלנו לצורך טיפול בה בלבד. איננו מנהלים מאגר פונים נפרד.</span> <a href="https://shaharm1.github.io/clip-to-vertical-privacy/" target="_blank" rel="noopener noreferrer" data-i18n="ourPrivacyLink">מדיניות הפרטיות שלנו</a> · <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer" data-i18n="privacyLink">פרטיות FormSubmit</a></p><button class="submit" id="send" type="submit"><span id="sendText" data-i18n="send">שליחת פנייה</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></svg></button></div>
+<div class="actions"><p class="privacy-note"><span data-i18n="privacy">הפנייה תועבר באמצעות FormSubmit לתיבת הדוא״ל שלנו לצורך טיפול בה בלבד. איננו מנהלים מאגר פונים נפרד.</span> <a href="https://shaharm1.github.io/clip-to-vertical/privacy.html" target="_blank" rel="noopener noreferrer" data-i18n="ourPrivacyLink">מדיניות הפרטיות שלנו</a> · <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer" data-i18n="privacyLink">פרטיות FormSubmit</a></p><button class="submit" id="send" type="submit"><span id="sendText" data-i18n="send">שליחת פנייה</span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></svg></button></div>
 </fieldset>
 <p class="status" role="alert" id="status" hidden></p>
 </form>
@@ -102,7 +102,7 @@ let lang='he',busy=false,statusKey='',retryTimer;
 const local=!/^https?:$/.test(location.protocol);
 const successNotice=document.getElementById('successNotice');
 function syncReturnUrl(){
-const next=new URL('https://shaharm1.github.io/clip-to-vertical-privacy/contact-us');
+const next=new URL('https://shaharm1.github.io/clip-to-vertical/contact-us.html');
 next.searchParams.set('sent','1');next.searchParams.set('lang',lang);
 document.getElementById('returnUrl').value=next.href;
 }
