@@ -42,6 +42,23 @@ html[lang="he"] .tile p,html[lang="he"] .step p,html[lang="he"] .side p,html[lan
 html[lang="he"] .meta,html[lang="he"] .notice,html[lang="he"] .form-link,html[lang="he"] footer{letter-spacing:normal}
 @media(max-width:600px){.lang button[lang="he"]{font-size:13px}}
 </style>
+<style>html[data-language-pending] body{visibility:hidden}</style>
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  let locale = '';
+  if (location.protocol === 'chrome-extension:') {
+    try { locale = globalThis.chrome?.i18n?.getUILanguage?.() || ''; } catch (_) {}
+  }
+  locale = locale || navigator.language || navigator.languages?.[0] || 'en';
+  let lang = /^(he|iw)([-_]|$)/i.test(locale) ? 'he' : 'en';
+  root.setAttribute('data-language-pending', '');
+  root.lang = lang;
+  root.dir = lang === 'he' ? 'rtl' : 'ltr';
+  document.addEventListener('DOMContentLoaded', () => root.removeAttribute('data-language-pending'), {once:true});
+})();
+</script>
 </head>
 <body>
 <main>
@@ -98,16 +115,7 @@ html[lang="he"] .meta,html[lang="he"] .notice,html[lang="he"] .form-link,html[la
 </main>
 <script>'use strict';
 (function(){
-  const params=new URLSearchParams(location.search);
-  let lang=params.get('lang');
-  if(lang!=='he'&&lang!=='en'){
-    try{lang=localStorage.getItem('blaz-language');}catch(_){/* storage unavailable */}
-  }
-  if(lang!=='he'&&lang!=='en'){
-    let ui='';try{ui=globalThis.chrome?.i18n?.getUILanguage?.()||'';}catch(_){/* fallback */}
-    ui=ui||navigator.languages?.[0]||navigator.language||'en-US';
-    lang=/^he(?:[-_]|$)/i.test(ui)?'he':'en';
-  }
+  let lang=document.documentElement.lang;
   function show(next){
     lang=next==='he'?'he':'en';
     document.documentElement.lang=lang;
